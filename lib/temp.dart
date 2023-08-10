@@ -1,38 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
+import 'package:flutter/services.dart';
+
+void main() {
+  runApp(PhoneDialScreen());
+}
 
 class PhoneDialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor:Colors.blueGrey,
-          title: Text(
-            'Camera Controller',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF007AFF), Color(0xFF34C759), Color(0xFFFF9500)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.blueGrey,
+            title: Text(
+              'Camera Controller',
+              style: TextStyle(color: Colors.white),
             ),
           ),
-          child: Column(
-            children: [
-              SizedBox(height: AppBar().preferredSize.height), // Ensure space for AppBar
-              RowOfButtons([0, 1, 2]),
-              SizedBox(height: 10),
-              RowOfButtons([3, 4, 5]),
-              SizedBox(height: 10),
-              RowOfButtons([6, 7, 8]),
-            ],
+          body: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF007AFF), Color(0xFF34C759), Color(0xFFFF9500)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: AppBar().preferredSize.height), // Ensure space for AppBar
+                RowOfButtons([0, 1, 2]),
+                SizedBox(height: 10),
+                RowOfButtons([3, 4, 5]),
+                SizedBox(height: 10),
+                RowOfButtons([6, 7, 8]),
+              ],
+            ),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              _openQRScanner(context); // Call the QR scanner function
+            },
           ),
         ),
       ),
     );
+  }
+
+  void _openQRScanner(BuildContext context) async {
+    String? qrResult = await scanQRCode();
+    if (qrResult != null) {
+      // Process the qrResult (e.g., add the device)
+      print('QR Result: $qrResult');
+    }
+  }
+
+  Future<String?> scanQRCode() async {
+    try {
+      // Start the barcode scanner
+      final ScanResult scanResult = await BarcodeScanner.scan();
+      return scanResult.rawContent;
+    } on PlatformException catch (e) {
+      if (e.code == BarcodeScanner.cameraAccessDenied) {
+        return 'Camera permission denied';
+      } else {
+        return 'Error: ${e.message}';
+      }
+    } on FormatException {
+      return 'User cancelled the scan';
+    } catch (e) {
+      return 'Error: $e';
+    }
   }
 }
 
@@ -57,7 +100,7 @@ class RowOfButtons extends StatelessWidget {
                 backgroundColor: _getButtonColor(i),
                 child: Text(
                   String.fromCharCode(65 + i),
-                  style: TextStyle(color: Colors.white,fontSize: 25),
+                  style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
@@ -125,8 +168,4 @@ class CircularButton extends StatelessWidget {
       color.blue + 20,
     );
   }
-}
-
-void main() {
-  runApp(PhoneDialScreen());
 }
