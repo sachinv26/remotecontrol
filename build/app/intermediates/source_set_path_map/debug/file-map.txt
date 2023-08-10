@@ -1,0 +1,12 @@
+www.uniolabs.com.remotecontrol.app-jetified-window-1.0.0-beta04-0 /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/res
+www.uniolabs.com.remotecontrol.app-jetified-annotation-experimental-1.1.0-1 /Users/sachin/.gradle/caches/transforms-3/6c0c163cc77ae6c91f9f7dfcd179c29c/transformed/jetified-annotation-experimental-1.1.0/res
+www.uniolabs.com.remotecontrol.app-core-1.6.0-2 /Users/sachin/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/res
+www.uniolabs.com.remotecontrol.app-jetified-window-java-1.0.0-beta04-3 /Users/sachin/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/res
+www.uniolabs.com.remotecontrol.app-debug-4 /Users/sachin/courses/remotecontrol/android/app/src/debug/res
+www.uniolabs.com.remotecontrol.app-main-5 /Users/sachin/courses/remotecontrol/android/app/src/main/res
+www.uniolabs.com.remotecontrol.app-pngs-6 /Users/sachin/courses/remotecontrol/build/app/generated/res/pngs/debug
+www.uniolabs.com.remotecontrol.app-resValues-7 /Users/sachin/courses/remotecontrol/build/app/generated/res/resValues/debug
+www.uniolabs.com.remotecontrol.app-rs-8 /Users/sachin/courses/remotecontrol/build/app/generated/res/rs/debug
+www.uniolabs.com.remotecontrol.app-mergeDebugResources-9 /Users/sachin/courses/remotecontrol/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+www.uniolabs.com.remotecontrol.app-mergeDebugResources-10 /Users/sachin/courses/remotecontrol/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+www.uniolabs.com.remotecontrol.app-merged_res-11 /Users/sachin/courses/remotecontrol/build/app/intermediates/merged_res/debug
