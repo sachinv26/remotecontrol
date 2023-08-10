@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "2.11.0"
   barcode_scan2:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: barcode_scan2
       sha256: "0b0625d27841a21e36e896195d86b2aada335e3c486f63647cce701495718e16"
