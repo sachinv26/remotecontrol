@@ -17,6 +17,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+enum Remote { remote1, remote2, remote3, remote4, remote5, remote6, remote7 }
+
+Remote remote = Remote.remote1;
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -36,8 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,
             children: [
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => RemoteScreen1()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RemoteScreen1()));
                 },
                 child: const ListTile(
                   title: Text(
@@ -46,12 +51,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              for (int i = 1; i <= 6; i++)
+              for (int i = 1; i <= 7; i++)
                 Column(
                   children: [
                     InkWell(
                       onTap: () {
                         setState(() {
+                          remote=  Remote.values[i - 1];
                           _selectedCamera = 'Remote $i';
                           Navigator.pop(context); // Close the drawer
                         });
@@ -76,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        body: _buildRemoteWidget(),
+        body: MyRemote(remote),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: Container(
           padding: EdgeInsets.all(20),
@@ -171,8 +177,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
-
 class RowOfButtons extends StatelessWidget {
   final List<int> buttonIndices;
 
@@ -220,7 +224,8 @@ class CircularButton extends StatelessWidget {
   final Color backgroundColor;
   final Widget child;
 
-  CircularButton({this.onPressed, required this.backgroundColor, required this.child});
+  CircularButton(
+      {this.onPressed, required this.backgroundColor, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -262,4 +267,18 @@ class CircularButton extends StatelessWidget {
       color.blue + 20,
     );
   }
+}
+
+Widget MyRemote(Remote remote) {
+  if (remote == Remote.remote1) return RemoteScreen1();
+  if (remote == Remote.remote2) return RemoteScreen2();
+  if (remote == Remote.remote3) return RemoteScreen3();
+
+  if (remote == Remote.remote4) return RemoteScreen4();
+
+  if (remote == Remote.remote5) return RemoteScreen5();
+
+  if (remote == Remote.remote6) return RemoteScreen6();
+
+  return RemoteScreen7();
 }

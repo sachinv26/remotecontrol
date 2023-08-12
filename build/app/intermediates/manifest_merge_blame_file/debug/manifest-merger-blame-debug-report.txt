@@ -13,16 +13,16 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/sachin/courses/remotecontrol/android/app/src/debug/AndroidManifest.xml:6:5-66
-15-->/Users/sachin/courses/remotecontrol/android/app/src/debug/AndroidManifest.xml:6:22-64
+15-->C:\Users\legion\StudioProjects\remotecontrol\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->C:\Users\legion\StudioProjects\remotecontrol\android\app\src\debug\AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.CAMERA" />
-16-->[:barcode_scan2] /Users/sachin/courses/remotecontrol/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-65
-16-->[:barcode_scan2] /Users/sachin/courses/remotecontrol/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-62
+16-->[:barcode_scan2] C:\Users\legion\StudioProjects\remotecontrol\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
+16-->[:barcode_scan2] C:\Users\legion\StudioProjects\remotecontrol\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-62
 17
 18    <application
 19        android:name="android.app.Application"
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.6.0] /Users/sachin/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+20-->[androidx.core:core:1.6.0] C:\Users\legion\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:icon="@mipmap/ic_launcher"
 23        android:label="remotecontrol" >
@@ -60,21 +60,21 @@
 55            android:value="2" />
 56
 57        <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
-57-->[:barcode_scan2] /Users/sachin/courses/remotecontrol/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-84
-57-->[:barcode_scan2] /Users/sachin/courses/remotecontrol/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:12:19-81
+57-->[:barcode_scan2] C:\Users\legion\StudioProjects\remotecontrol\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-84
+57-->[:barcode_scan2] C:\Users\legion\StudioProjects\remotecontrol\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:19-81
 58
 59        <uses-library
-59-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+59-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 60            android:name="androidx.window.extensions"
-60-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+60-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
 61            android:required="false" />
-61-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+61-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
 62        <uses-library
-62-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+62-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
 63            android:name="androidx.window.sidecar"
-63-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+63-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
 64            android:required="false" />
-64-->[androidx.window:window:1.0.0-beta04] /Users/sachin/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+64-->[androidx.window:window:1.0.0-beta04] C:\Users\legion\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 65    </application>
 66
 67</manifest>
