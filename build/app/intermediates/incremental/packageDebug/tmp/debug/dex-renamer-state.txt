@@ -1,4 +1,4 @@
-#Sat Aug 12 22:18:49 IST 2023
-base.0=C\:\\Users\\legion\\StudioProjects\\remotecontrol\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
+#Tue Aug 15 15:04:21 IST 2023
+base.0=/Users/sachin/courses/remotecontrol/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
+renamed.0=classes.dex

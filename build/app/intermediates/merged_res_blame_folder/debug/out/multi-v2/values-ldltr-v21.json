@@ -4,7 +4,7 @@
             "outputFile": "www.uniolabs.com.remotecontrol.app-mergeDebugResources-19:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\legion\\.gradle\\caches\\transforms-3\\cff0a11f4a56844f86a75bb945a75ae2\\transformed\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/Users/sachin/.gradle/caches/transforms-3/cff0a11f4a56844f86a75bb945a75ae2/transformed/appcompat-1.1.0/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

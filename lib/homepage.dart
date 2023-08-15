@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/services.dart';
+import 'package:remotecontrol/AddRemote.dart';
+import 'package:remotecontrol/RemoteLists.dart';
 
-
-
-
-class PhoneDialScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _PhoneDialScreenState createState() => _PhoneDialScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _PhoneDialScreenState extends State<PhoneDialScreen> {
-  String _selectedCamera = ''; // Store the selected camera from the drawer
+class _HomeScreenState extends State<HomeScreen> {
+ // String _selectedCamera = '';
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +22,8 @@ class _PhoneDialScreenState extends State<PhoneDialScreen> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              const ListTile(
-                title: Text(
-                  "Camera List",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-              ),
-              for (int i = 1; i <= 6; i++)
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          _selectedCamera = 'Camera $i';
-                          Navigator.pop(context); // Close the drawer
-                        });
-                      },
-                      splashColor: Colors.lightBlueAccent,
-                      child: ListTile(
-                        leading: Icon(Icons.camera),
-                        title: Text('Camera $i'),
-                      ),
-                    ),
-                    Divider(),
-                  ],
-                ),
+              for (int i = 0; i <remotesList.length; i++)
+                remotesList[i]
             ],
           ),
         ),
@@ -59,7 +35,7 @@ class _PhoneDialScreenState extends State<PhoneDialScreen> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        body: _buildRemoteWidget(),
+        body: Center(child: Text('Add Remote')),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: Container(
           padding: EdgeInsets.all(20),
@@ -67,7 +43,7 @@ class _PhoneDialScreenState extends State<PhoneDialScreen> {
             backgroundColor: Color(0xFF3d3d44),
             child: Icon(Icons.add),
             onPressed: () {
-              _openQRScanner(context); // Call the QR scanner function
+              _openQRScanner(context);
             },
           ),
         ),
@@ -78,14 +54,21 @@ class _PhoneDialScreenState extends State<PhoneDialScreen> {
   void _openQRScanner(BuildContext context) async {
     String? qrResult = await scanQRCode();
     if (qrResult != null) {
-      // Process the qrResult (e.g., add the device)
+
       print('QR Result: $qrResult');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AddRemoteScreen(idString: qrResult),
+        ),
+      );
+
     }
   }
 
   Future<String?> scanQRCode() async {
     try {
-      // Start the barcode scanner
+
       final ScanResult scanResult = await BarcodeScanner.scan();
       return scanResult.rawContent;
     } on PlatformException catch (e) {
@@ -101,57 +84,53 @@ class _PhoneDialScreenState extends State<PhoneDialScreen> {
     }
   }
 
-  Widget _buildRemoteWidget() {
-    if (_selectedCamera.isEmpty) {
-      return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF3d3d44),
-              Color(0xFF8e8e96),
-              Color(0xFF3d3d44),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: AppBar().preferredSize.height),
-            RowOfButtons([0, 1, 2]),
-            SizedBox(height: 10),
-            RowOfButtons([3, 4, 5]),
-            SizedBox(height: 10),
-            RowOfButtons([6, 7, 8]),
-          ],
-        ),
-      );
-    } else {
-      int numberOfButtons = 4; // Default number of buttons
-      if (_selectedCamera == 'Camera 2') {
-        numberOfButtons = 6;
-      }
-      return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF3d3d44),
-              Color(0xFF8e8e96),
-              Color(0xFF3d3d44),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: AppBar().preferredSize.height),
-            RowOfButtons(List.generate(numberOfButtons, (index) => index)),
-          ],
-        ),
-      );
-    }
-  }
+  // Widget _buildRemoteWidget() {
+  //   if (_selectedCamera.isEmpty) {
+  //     return Container(
+  //       decoration: BoxDecoration(
+  //         gradient: LinearGradient(
+  //           colors: [
+  //             Color(0xFF3d3d44),
+  //             Color(0xFF8e8e96),
+  //             Color(0xFF3d3d44),
+  //           ],
+  //           begin: Alignment.topCenter,
+  //           end: Alignment.bottomCenter,
+  //         ),
+  //       ),
+  //       child: Column(
+  //         children: [
+  //           SizedBox(height: AppBar().preferredSize.height),
+  //           RowOfButtons([0, 1, 2]),
+  //           SizedBox(height: 10),
+  //           RowOfButtons([3, 4, 5]),
+  //           SizedBox(height: 10),
+  //           RowOfButtons([6, 7, 8]),
+  //         ],
+  //       ),
+  //     );
+  //   } else {
+  //     return Container(
+  //       decoration: BoxDecoration(
+  //         gradient: LinearGradient(
+  //           colors: [
+  //             Color(0xFF3d3d44),
+  //             Color(0xFF8e8e96),
+  //             Color(0xFF3d3d44),
+  //           ],
+  //           begin: Alignment.topCenter,
+  //           end: Alignment.bottomCenter,
+  //         ),
+  //       ),
+  //       child: Column(
+  //         children: [
+  //           SizedBox(height: AppBar().preferredSize.height),
+  //           RowOfButtons(List.generate(6, (index) => index)),
+  //         ],
+  //       ),
+  //     );
+  //   }
+  // }
 }
 
 class RowOfButtons extends StatelessWidget {
@@ -201,7 +180,8 @@ class CircularButton extends StatelessWidget {
   final Color backgroundColor;
   final Widget child;
 
-  CircularButton({this.onPressed, required this.backgroundColor, required this.child});
+  CircularButton(
+      {this.onPressed, required this.backgroundColor, required this.child});
 
   @override
   Widget build(BuildContext context) {
